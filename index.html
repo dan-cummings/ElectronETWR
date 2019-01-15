@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>ETWR</title>
+        <!-- Syling and utility -->
+        <link rel="stylesheet"
+            href="node_modules/material-design-lite/material.min.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+        <script src="node_modules/material-design-lite/material.min.js"></script>
+        <style>
+            body {
+                width: 100vw;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Simple header with fixed tabs. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Escape the War Room</span>
+                </div>
+                <!-- Tabs -->
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab
+                        1</a>
+                    <a href="#fixed-tab-2" class="mdl-layout__tab">Dynatrace</a>
+                    <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+            </div>
+            <main style="height: 100%" class="mdl-layout__content">
+                <section class="mdl-layout__tab-panel is-active"
+                    id="fixed-tab-1">
+                    <div class="page-content"><!-- Your content goes here -->
+                    </div>
+                </section>
+                <section style="height: 100%" class="mdl-layout__tab-panel" id="fixed-tab-2">
+                    <webview id="dt-webview" src="https://www.dynatrace.com" autosize="on" style="height: 100%"></webview>
+                </section>
+                <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                    <div class="page-content"><!-- Your content goes here --></div>
+                </section>
+            </main>
+        </div>
+        <script src="main/js/renderer.js" charset="utf-8"></script>
+    </body>
+</html>

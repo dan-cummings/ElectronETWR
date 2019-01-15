@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Phillips Hue</title>
+        <link rel="stylesheet"
+            href="../node_modules/material-design-lite/material.min.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
+        <script src="../node_modules/material-design-lite/material.min.js"></script>
+    </head>
+    <body>
+        <!-- Huecontrols -->
+        <div class="bridge">
+            <h3>Hue Controls</h3>
+            <h4>Bridges</h4>
+            <button id="search" class="mdl-button mdl-js-button
+                mdl-js-ripple-effect mdl-button--raised mdl-button--accent">Search</button>
+            <button id="load-config" class="mdl-button mdl-js-button
+            mdl-js-ripple-effect mdl-button--raised mdl-button--accent">Load Last</button>
+            <ul id="bridges" class="mdl-list">
+            </ul>
+        </div>
+        <div class="controlcontainer">
+            <h4>Found Lights</h4>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                    <th>Light Switches</th>
+                    </tr>
+                </thead>
+                <tbody id="lights-table">
+                    <!-- Content for the table -->
+                </tbody>
+                </table>
+        </div>
+
+        <!-- Start of JS -->
+        <!-- Load renderer last -->
+        <script src="js/renderer.js" charset="utf-8"></script>
+
+    </body>
+</html>
