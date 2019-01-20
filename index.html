@@ -11,10 +11,6 @@
         <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
         <script src="node_modules/material-design-lite/material.min.js"></script>
         <style>
-            body {
-                width: 100vw;
-                height: 100vh;
-            }
         </style>
     </head>
     <body>
@@ -28,10 +24,8 @@
                 </div>
                 <!-- Tabs -->
                 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab
-                        1</a>
+                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">API Poller</a>
                     <a href="#fixed-tab-2" class="mdl-layout__tab">Dynatrace</a>
-                    <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
@@ -44,10 +38,7 @@
                     </div>
                 </section>
                 <section style="height: 100%" class="mdl-layout__tab-panel" id="fixed-tab-2">
-                    <webview id="dt-webview" src="https://www.dynatrace.com" autosize="on" style="height: 100%"></webview>
-                </section>
-                <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-                    <div class="page-content"><!-- Your content goes here --></div>
+                    <webview id="dt-webview" src="https://hiu91451.dev.dynatracelabs.com/" autosize="on" style="height: 100%"></webview>
                 </section>
             </main>
         </div>

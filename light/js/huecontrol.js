@@ -29,7 +29,7 @@ class HueController {
             console.log(`New user created - Username: ${user.username}`);
             this.client.username = user.username
             this.client.bridge.isAuthenticated().then(() => {
-                notify.notify({title: 'Success!', message: `You have been connected to ${this.client.bridge.ip}.`})
+                notify.notify({title: 'Success!', message: `You have been connected to ${this.client.host}.`})
                 store.set('lastBridge', {ip: this.client.host, username: this.client.username})
             }).catch(error => {
                 notify.notify({title: 'Failure!', message: `Could not authenticate.`})
@@ -57,14 +57,14 @@ class HueController {
         })
     }
 
-    lightSwitch(id, on) {
+    lightSwitch(id) {
         this.client.lights.getById(id).then(light =>{
-            light.on = on
-            return client.lights.save(light)
+            light.on = !light.on
+            return this.client.lights.save(light)
         }).then(light => {
             console.log('Light updated')
         }).catch(error => {
-            console.log('Something went wrong')
+            console.log(error.stack)
         })
     }
 
@@ -72,6 +72,18 @@ class HueController {
         this.user = new this.client.users.User
         this.client.users.getByUsername(name).then(user => {
             this.client.username = user.username
+        }).catch(error => {
+            console.log(error.stack)
+        })
+    }
+
+    changeBrightness(id, brightness) {
+        console.log(brightness)
+        this.client.lights.getById(id).then(light => {
+            light.brightness = brightness
+            return this.client.lights.save(light)
+        }).then(light => {
+            console.log('Light brightness changed')
         }).catch(error => {
             console.log(error.stack)
         })

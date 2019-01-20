@@ -1,16 +1,18 @@
 const electron = require('electron')
 const app = electron.app
+require('electron-reload')(__dirname)
 
 const BrowserWindow = electron.BrowserWindow
 
 let mainWindow, lightWindow
+
 
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 1280, height: 720 })
 
   console.log(app.getPath('userData'))
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   electron.globalShortcut.register("command+i", () => {
     lightWindow = new BrowserWindow({ width: 600, height: 800 })
     lightWindow.loadURL(`file://${__dirname}/light/huecontrol.html`)
