@@ -8,6 +8,7 @@ let hue = new HueController()
 let lastBridge = store.get('lastBridge')
 
 var find = function findBridges() {
+  $('#bridges').empty()
   hue.discover().then((bridges) => {
     for (let bridge of bridges) {
       buildBridge(bridge)
@@ -37,9 +38,11 @@ function buildLights(lights) {
       }))
     $(`#${light.id}`).append($('<td></td>').append($(`
     <input class="mdl-slider mdl-js-slider" type="range"
-      min="0" max="255" value="${light.brightness}" tabindex="0">
-    `).slider((event, ui) => {
-      hue.changeBrightness(light.id, ui.value)
+      min="0" max="255" value=${light.brightness} tabindex="0">
+    `).change((event) => {
+      var val = event.target.value
+      console.log(val)
+      hue.changeBrightness(light.id, val)
     })))
   }
   $('#lights-table').append(
@@ -59,12 +62,14 @@ var connect = function connectToBridge(ip) {
 
 $('#load-config').click(() => {
   if (lastBridge) {
+    $('#lights-table').empty()
     $('#load-lights').prop('disabled', false)
     console.log(`ip: ${lastBridge.ip}, username: ${lastBridge.username}`)
     hue = new HueController({ip: lastBridge.ip, username: lastBridge.username})
     hue.getUsername(lastBridge.username)
     hue.getAllLights().then(lights => {
       buildLights(lights)
+      notify.notify({title: 'Success!', message: `You have been connected to ${lastBridge.ip}.`})
     }).catch(error => {
       console.log(error.stack)
     })

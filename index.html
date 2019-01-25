@@ -8,10 +8,9 @@
             href="node_modules/material-design-lite/material.min.css">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="./main/css/puzzle.css">
         <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
         <script src="node_modules/material-design-lite/material.min.js"></script>
-        <style>
-        </style>
     </head>
     <body>
         <!-- Simple header with fixed tabs. -->
@@ -24,18 +23,16 @@
                 </div>
                 <!-- Tabs -->
                 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                    <a href="#fixed-tab-1" class="mdl-layout__tab is-active">API Poller</a>
-                    <a href="#fixed-tab-2" class="mdl-layout__tab">Dynatrace</a>
+                    <a id='tab1' href="#fixed-tab-1" class="mdl-layout__tab is-active">API Poller</a>
+                    <a id='tab2' href="#fixed-tab-2" class="mdl-layout__tab">Dynatrace</a>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Title</span>
+                <span class="mdl-layout-title">Objective</span>
             </div>
             <main style="height: 100%" class="mdl-layout__content">
-                <section class="mdl-layout__tab-panel is-active"
+                <section style="height: 100%" class= "mdl-layout__tab-panel is-active"
                     id="fixed-tab-1">
-                    <div class="page-content"><!-- Your content goes here -->
-                    </div>
                 </section>
                 <section style="height: 100%" class="mdl-layout__tab-panel" id="fixed-tab-2">
                     <webview id="dt-webview" src="https://hiu91451.dev.dynatracelabs.com/" autosize="on" style="height: 100%"></webview>

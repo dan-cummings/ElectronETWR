@@ -1,0 +1,81 @@
+form {
+    width: auto;
+    height: auto;
+    align-content: center;
+}
+
+#submit {
+    display: none;
+}
+
+#puzzle-entry {
+    height: 70%;
+    padding: 25px;
+    box-shadow: 5px 5px 5px 5px blue;
+    border-radius: 3px;
+}
+
+.mdl-textfield--floating-label {
+    text-align: center;
+}
+
+/* #token3.mdl-textfield__input {
+    border-bottom-color: #e23242;
+}
+
+#token2.mdl-textfield__input {
+    border-bottom-color: #e23242;
+}
+
+#token1.mdl-textfield__input {
+    border-bottom-color: #e23242;
+} */
+
+/* .mdl-textfield.is-focused .mdl-textfield__label {
+    color: red;
+}
+
+.mdl-textfield__label:after {
+    background-color: red;
+}
+
+.mdl-textfield__label {
+    color: red !important;
+    border-color: red !important;
+} */
+#puzzle-order {
+    height: 70%;
+    padding: 25px;
+    box-shadow: 5px 5px 5px 5px black;
+    background: -moz-radial-gradient();
+    border-radius: 3px;
+}
+
+.place-1 .place-2 .place-3 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* #token3.mdl-textfield__input {
+    border-bottom-color: #e23242;
+}
+
+#token2.mdl-textfield__input {
+    border-bottom-color: #e23242;
+}
+
+#token1.mdl-textfield__input {
+    border-bottom-color: #e23242;
+} */
+
+/* .mdl-textfield.is-focused .mdl-textfield__label {
+    color: red;
+}
+
+.mdl-textfield__label:after {
+    background-color: red;
+}
+
+.mdl-textfield__label {
+    color: red !important;
+    border-color: red !important;
+} */

@@ -92,7 +92,7 @@ class HueController {
     ping() {
         this.client.bridge.ping()
         .then(() => {
-            console.log('Successful connection');
+            notify.notify({title: 'Success!', message: `You have been connected to ${this.client.host}.`})
         })
         .catch(error => {
             console.log('Could not connect');
