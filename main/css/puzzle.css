@@ -4,78 +4,102 @@ form {
     align-content: center;
 }
 
+.mdl-layout__header {
+    background: linear-gradient(#191919, #242424)
+}
+
+a {
+    font-family: BerninaSansWeb, sans-serif;
+}
+
+.mdl-layout__tab {
+    background: #242424;
+}
+
+.mdl-layout_title {
+    font-family: BerninaSansWeb, sans-serif;
+}
+
+body {
+    background: #f2f2f2
+}
+
 #submit {
     display: none;
 }
 
+h3 {
+    font-family: BerninaSansWeb, sans-serif;
+    border-bottom: 2px solid #898989;
+}
+
+.is-active {
+    border-color: #f2f2f2;
+}
+
 #puzzle-entry {
-    height: 70%;
-    padding: 25px;
-    box-shadow: 5px 5px 5px 5px blue;
-    border-radius: 3px;
+    height: 100%;
+    padding: 100px;
+    flex-flow: row;
+    align-items: center;
+    box-shadow: 5px 5px 25px 5px #898989;
+    border-radius: 9px;
+    border: 1px solid #b7b7b7;
+    background: #ececec;
+    align-content: center;
+    vertical-align: middle;
 }
 
 .mdl-textfield--floating-label {
     text-align: center;
-}
-
-/* #token3.mdl-textfield__input {
-    border-bottom-color: #e23242;
-}
-
-#token2.mdl-textfield__input {
-    border-bottom-color: #e23242;
-}
-
-#token1.mdl-textfield__input {
-    border-bottom-color: #e23242;
-} */
-
-/* .mdl-textfield.is-focused .mdl-textfield__label {
-    color: red;
-}
-
-.mdl-textfield__label:after {
-    background-color: red;
+    font-size: 24px;
 }
 
 .mdl-textfield__label {
-    color: red !important;
-    border-color: red !important;
-} */
+    font-size: 24px;
+}
+
+.mdl-textfield__input {
+    font-size: 24px;
+}
+
+#puzzle-order-terminal {
+    height: 70%;
+    padding: 25px;
+    box-shadow: 5px 5px 5px 5px black;
+    border-radius: 3px;
+    background: #191919;
+    word-wrap: break-word;
+    overflow-y: scroll;
+}
+
+#puzzle-order-terminal p {
+    color: #f2f2f2;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
+
 #puzzle-order {
     height: 70%;
     padding: 25px;
     box-shadow: 5px 5px 5px 5px black;
-    background: -moz-radial-gradient();
     border-radius: 3px;
 }
 
-.place-1 .place-2 .place-3 {
+.mdl-grid {
+    height: 80%;
+    padding: 24px;
+    margin: 15px;
+}
+
+.place-1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* #token3.mdl-textfield__input {
-    border-bottom-color: #e23242;
+.place-2 {
+    font-family: 'Courier New', Courier, monospace;
 }
 
-#token2.mdl-textfield__input {
-    border-bottom-color: #e23242;
+.place-3 {
+    font-family: 'Courier New', Courier, monospace;
 }
-
-#token1.mdl-textfield__input {
-    border-bottom-color: #e23242;
-} */
-
-/* .mdl-textfield.is-focused .mdl-textfield__label {
-    color: red;
-}
-
-.mdl-textfield__label:after {
-    background-color: red;
-}
-
-.mdl-textfield__label {
-    color: red !important;
-    border-color: red !important;
-} */

@@ -14,6 +14,7 @@ function createWindow() {
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.webContents.openDevTools()
   electron.globalShortcut.register('F5', () => {
+    mainWindow.webContents.session.clearStorageData()
     mainWindow.reload()
   })
   electron.globalShortcut.register("CommandOrControl+i", () => {
@@ -46,7 +47,6 @@ app.on('activate', function () {
 
 ipcMain.on('create-window', (event, arg) => {
   if (arg === "winner") {
-    console.log("here")
     winnerWindow = new BrowserWindow({width: 1280, height: 720, parent: mainWindow})
     winnerWindow.webContents.on('did-finish-load', ()=>{
       winnerWindow.show();
