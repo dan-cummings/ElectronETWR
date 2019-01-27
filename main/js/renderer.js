@@ -3,6 +3,7 @@ const player = require('play-sound')(opts = {})
 const HueController = require(`${__dirname}/light/js/huecontrol.js`)
 const { ipcRenderer } = require('electron')
 const Store = require('electron-store')
+const Typed = require('typed.js') 
 
 let token1 = false
 let token2 = false
@@ -13,6 +14,8 @@ let dragText
 
 let store = new Store()
 let hue
+let typing
+let stringArray = ['curl -X GET hiu91451.dev.dynatracelabs.com/api/v1/userSessionQueryLanguage/table?query=SELECT%20userId%20FROM%20usersession%20WHERE%20startTime%3D%201540998501185&Api-Token=','PRODAPM1-VESPER-NAT1962']
 
 let lastBridge = store.get('lastBridge')
 
@@ -42,13 +45,14 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
         var input = event.target.value
         if (input.toUpperCase() === "nat1962".toUpperCase()) {
             $('#token1').prop('disabled', true)
+            $('#token1').css('border-bottom-color','#17ba0c')
+            $('#token1').css('color','#17ba0c')
             var token2 = $('#token2')
             token2.focus()
             token1 = true
             playsound()
             // activateLight(1)
             if (token1 & token2 & token3) {
-                console.log('done')
                 $('#submit').show('slow')
             }
         }
@@ -61,13 +65,14 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
         var input = event.target.value
         if (input.toUpperCase() === "prodapm1".toUpperCase()) {
             $('#token2').prop('disabled', true)
+            $('#token2').css('border-bottom-color','#17ba0c')
+            $('#token2').css('color','#17ba0c')
             var token3 = $('#token3')
             token3.focus()
             token2 = true
             playsound()
             // activateLight(2)
             if (token1 & token2 & token3) {
-                console.log('done')
                 $('#submit').show('slow')
             }
         }
@@ -80,11 +85,12 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
         var input = event.target.value
         if (input.toUpperCase() === "vesper".toUpperCase()) {
             $('#token3').prop('disabled', true)
+            $('#token3').css('border-bottom-color','#17ba0c')
+            $('#token3').css('color','#17ba0c')
             token3 = true
             playsound()
             // activateLight(3)
             if (token1 & token2 & token3) {
-                console.log('done')
                 $('#submit').show('slow')
             }
         }
@@ -97,9 +103,12 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             $('#fixed-tab-1').empty()
             $('#fixed-tab-1').load('./main/pages/puzzle-order.html', () => {
                 $('#fixed-tab-1').fadeIn('slow')
+                var typing1 = new Typed('#type1', {strings: stringArray, typeSpeed: 20})
                 function positionCheck() {
                     if ($('.place-1').text() === 'PRODAPM1' && $('.place-2').text() === 'VESPER' && $('.place-3').text() === 'NAT1962') {
                         playsound()
+                        typing1.start()
+                        // var typing2 = new Typed("#type2", {strings: ['PRODAPM1-VESPER-NAT1962'], typeSpeed: 20})
                         hue.lightSwitch(4)
                         setTimeout(() => {
                             winner()
@@ -138,5 +147,18 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             })
         })
     })
+})
 
+$('#tab1').click((event) => {
+    event.preventDefault()
+    $('#fixed-tab-2').slideUp('slow',() => {
+        $('#fixed-tab-1').slideDown('slow')
+    })
+})
+
+$('#tab2').click((event) => {
+    event.preventDefault()
+    $('#fixed-tab-1').slideUp('slow',() => {
+        $('#fixed-tab-2').slideDown('slow')
+    })
 })

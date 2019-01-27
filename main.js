@@ -22,7 +22,6 @@ function createWindow() {
   electron.globalShortcut.register("CommandOrControl+i", () => {
     lightWindow = new BrowserWindow({ width: 600, height: 800, parent: mainWindow, modal: true, autoHideMenuBar: true})
     lightWindow.loadURL(`file://${__dirname}/light/huecontrol.html`)
-    lightWindow.webContents.openDevTools()
     lightWindow.on('closed', function () {
       lightWindow = null
     })
@@ -54,11 +53,11 @@ ipcMain.on('create-window', (event, arg) => {
       winnerWindow.show();
       winnerWindow.focus();
     });
-    winnerWindow.loadURL(`file://${__dirname}/main/pages/win.html`)
     winnerWindow.hide();
-    winnerWindow.webContents.openDevTools()
+    winnerWindow.loadURL(`file://${__dirname}/main/pages/win.html`)
     winnerWindow.on('closed', function () {
       winnerWindow = null
     })
+    winner
   }
 })

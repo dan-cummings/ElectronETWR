@@ -1,14 +1,23 @@
-<div class="mdl-grid">
+<div class="mdl-grid order-grid">
     <div id='puzzle-order-terminal' class="mdl-cell mdl-cell--8-col">
-        <p>MI6@AGENT007:~$ curl -X GET
-            hiu91451.dev.dynatracelabs.com/api/v1/userSessionQueryLanguage/table?query=SELECT%20userId%20FROM%20usersession%20WHERE%20startTime%3D%201540998501185&Api-Token=</p>
+        <p>MI6@AGENT007:~$ <span id="type1"></span><span id="type2"></span></p>
     </div>
     <div id='puzzle-order' class="mdl-cell mdl-cell--4-col">
         <h4>Drag & Drop to order</h4>
-        <div class="mdl-grid">
-                <label class="place-1" draggable="true">NAT1962</label>
-                <label class="place-2" draggable="true">PRODAPM1</label>
-                <label class="place-3" draggable="true">VESPER</label>
+        <div class="mdl-grid drag-n-drop">
+                <div class="mdl-cell mdl-cell--4-col location">1. </div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    <p class="place-1" draggable="true">NAT1962</p>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col location">2. </div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    <p class="place-2" draggable="true">PRODAPM1</p>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col location">3. </div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    <p class="place-3" draggable="true">VESPER</p>
+                </div>
+                
         </div>
     </div>
 </div>

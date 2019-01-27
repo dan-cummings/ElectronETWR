@@ -25,7 +25,7 @@ body {
     transition: font-size 0.33s, color 0.33s;
 }
 
-.mdl-layout__tab:hover {
+.mdl-layout__tab .tab-selection:hover {
     color: #898989;
 }
 
@@ -42,10 +42,10 @@ body {
 }
 
 
-
 /* Puzzle entry elements */
+
 #submit.mdl-button {
-    /* display: none; */
+    display: none;
     background-image: linear-gradient(120deg, rgb(37, 131, 238) 25%, rgb(113, 47, 144) 75%);
     font-family: Tahoma;
     font-weight: 100;
@@ -54,7 +54,7 @@ body {
     transition: background-position-x 0.33s;
     background-position: 50%;
     padding: 8px 22px;
-    margin: 0 3px;
+    margin: 0 auto;
     font-size: 15px;
     line-height: 16px;
 }
@@ -63,30 +63,44 @@ body {
     background-position-x: 10%;
 }
 
+#submit.mdl-button__ripple-container {
+    margin: 0 auto;
+}
+
 h3 {
-    font-weight: 500;
-    border-bottom-width: 2px;
+    display: inline-flex;
+    font-weight: 300;
+    border-bottom-width: 3px;
     border-bottom-style: solid;
-    border-image: linear-gradient(120deg, rgba(37, 131, 238, 1) 5%,rgba(113, 47, 144,0.5), rgba(113, 47, 144, 0) 90%) 20;
+    border-image: linear-gradient(120deg, rgba(37, 131, 238, 1), rgba(113, 47, 144, 1)) 20;
+    border-radius: 5px;
+}
+
+h4 {
+    display: inline-flex;
+    font-weight: 300;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(120deg, rgba(37, 131, 238, 1), rgba(113, 47, 144, 1)) 20;
+    border-radius: 5px;
 }
 
 form {
     width: auto;
     height: auto;
+    margin: 22px;
     align-content: center;
 }
 
 #puzzle-entry {
     height: 100%;
-    padding: 50px;
+    padding: 24px 50px 24px 50px;
     flex-flow: row;
-    align-items: center;
-    box-shadow: 5px 5px 25px 5px #898989;
+    filter: drop-shadow(7px 20px 20px #1d65b8);
     border-radius: 9px;
-    border: 1px solid #b7b7b7;
+    border: 1px solid #000;
     background: #ececec;
-    align-content: center;
-    vertical-align: middle;
+    text-align: center;
 }
 
 
@@ -95,11 +109,12 @@ form {
 #puzzle-order-terminal {
     height: 70%;
     padding: 25px;
-    box-shadow: 5px 5px 5px 5px black;
+    filter: drop-shadow(7px 20px 20px #1d65b8);
     border-radius: 3px;
     background: #191919;
     word-wrap: break-word;
     overflow-y: scroll;
+    border: 2px solid #ececec;
 }
 
 #puzzle-order-terminal p {
@@ -109,30 +124,56 @@ form {
 }
 
 #puzzle-order {
-    height: 70%;
     padding: 25px;
-    box-shadow: 5px 5px 5px 5px black;
+    filter: drop-shadow(7px 20px 20px #1d65b8);
     border-radius: 3px;
+    background: #ececec;
+    text-align: center;
+    height: fit-content;
 }
 
 .place-1 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #2ab6f4;
+    font-size: 24px;
+    height: 100%;
 }
 
 .place-2 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #9cd575;
+    font-size: 24px;
+    height: 100%;
 }
 
 .place-3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #e74d59;
+    font-size: 24px;
+    height: 100%;
+}
 
+.drag-n-drop {
+    width: auto;
+    height: 45%;
+    text-align: center;
 }
 
 /* MDL specific */
 .mdl-grid {
-    height: 80%;
-    padding: 24px;
+    height: fit-content;
     margin: 15px;
+}
+
+.order-grid {
+    height: 100%;
+}
+
+.mdl-textfield__input {
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    font-size: 24px;
 }
 .mdl-textfield--floating-label {
     text-align: center;
@@ -141,4 +182,33 @@ form {
 
 .mdl-textfield__label {
     font-size: 24px;
+}
+
+.mdl-textfield__label:after {
+    background-color: #712F90;
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+    color: #712F90;
+}
+
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: #712F90;
+}
+
+.typed-cursor {
+    opacity: 1;
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
