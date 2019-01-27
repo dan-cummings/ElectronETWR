@@ -19,7 +19,18 @@ function createWindow() {
     mainWindow.webContents.session.clearStorageData()
     mainWindow.reload()
   })
+  electron.globalShortcut.register('F2', () => {
+    if (winnerWindow) {
+      winnerWindow.close()
+    }
+    if (lightWindow) {
+      lightWindow.close()
+    }
+  })
   electron.globalShortcut.register("CommandOrControl+i", () => {
+    if (lightWindow) {
+      return
+    }
     lightWindow = new BrowserWindow({ width: 600, height: 800, parent: mainWindow, modal: true, autoHideMenuBar: true})
     lightWindow.loadURL(`file://${__dirname}/light/huecontrol.html`)
     lightWindow.on('closed', function () {
@@ -48,16 +59,14 @@ app.on('activate', function () {
 
 ipcMain.on('create-window', (event, arg) => {
   if (arg === "winner") {
-    winnerWindow = new BrowserWindow({width: 1280, height: 720, parent: mainWindow, modal: true, autoHideMenuBar: true})
+    winnerWindow = new BrowserWindow({width: 1280, height: 720, parent: mainWindow, modal: true, show: false})
     winnerWindow.webContents.on('did-finish-load', ()=>{
       winnerWindow.show();
       winnerWindow.focus();
     });
-    winnerWindow.hide();
     winnerWindow.loadURL(`file://${__dirname}/main/pages/win.html`)
     winnerWindow.on('closed', function () {
       winnerWindow = null
     })
-    winner
   }
 })

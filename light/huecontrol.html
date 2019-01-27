@@ -9,10 +9,11 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
         <script src="../node_modules/material-design-lite/material.min.js"></script>
+        <link rel="stylesheet" href="./main/css/puzzle.css">
     </head>
     <body>
         <!-- Huecontrols -->
-        <div class="bridge">
+        <div class="bridge" style="text-align: center;">
             <h3>Hue Controls</h3>
             <h4>Bridges</h4>
             <button id="search" class="mdl-button mdl-js-button
@@ -24,7 +25,7 @@
             <ul id="bridges" class="mdl-list">
             </ul>
         </div>
-        <div class="controlcontainer">
+        <div class="controlcontainer" style="text-align: center;">
             <h4>Found Lights</h4>
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
@@ -42,21 +43,5 @@
         <!-- Start of JS -->
         <!-- Load renderer last -->
         <script src="js/renderer.js" charset="utf-8"></script>
-        <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-        }
-        h3 h4 {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-        }
-
-        div {
-            margin: 15px auto;
-        }
-        </style>
-
     </body>
 </html>

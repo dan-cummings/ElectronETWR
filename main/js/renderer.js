@@ -15,7 +15,8 @@ let dragText
 let store = new Store()
 let hue
 let typing
-let stringArray = ['curl -X GET hiu91451.dev.dynatracelabs.com/api/v1/userSessionQueryLanguage/table?query=SELECT%20userId%20FROM%20usersession%20WHERE%20startTime%3D%201540998501185&Api-Token=','PRODAPM1-VESPER-NAT1962']
+let stringArray = ['curl -X GET hiu91451.dev.dynatracelabs.com/api/v1/userSessionQueryLanguage/table?query=SELECT userId FROM usersession WHERE startTime 201540998501185 & Api-Token=',
+'PRODAPM1-VESPER-NAT1962<br /><br />&nbsp;^1000Poking the API monkeys.^1000.^1000.^1000.<br />&nbsp;Sending bananas and query.^1000.^1000.^1000.<br />&nbsp;Formatting unintelligible response from monkeys.^1000.^1000.^1000.<br /><br />Response:`<br />&nbsp;{<br />&nbsp;&nbsp;"extrapolationLevel" : 1,<br />&nbsp;&nbsp;"columnNames":["userId"], <br /> &nbsp; "values":[[<span style="color: #2ab06f">"GENERAL FANNY RIDEWELL"</span>]]<br/>&nbsp;}`']
 
 let lastBridge = store.get('lastBridge')
 
@@ -51,7 +52,7 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             token2.focus()
             token1 = true
             playsound()
-            // activateLight(1)
+            activateLight(1)
             if (token1 & token2 & token3) {
                 $('#submit').show('slow')
             }
@@ -71,7 +72,7 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             token3.focus()
             token2 = true
             playsound()
-            // activateLight(2)
+            activateLight(2)
             if (token1 & token2 & token3) {
                 $('#submit').show('slow')
             }
@@ -89,7 +90,7 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             $('#token3').css('color','#17ba0c')
             token3 = true
             playsound()
-            // activateLight(3)
+            activateLight(3)
             if (token1 & token2 & token3) {
                 $('#submit').show('slow')
             }
@@ -103,16 +104,16 @@ $('#fixed-tab-1').load('./main/pages/puzzle-entry.html', () => {
             $('#fixed-tab-1').empty()
             $('#fixed-tab-1').load('./main/pages/puzzle-order.html', () => {
                 $('#fixed-tab-1').fadeIn('slow')
-                var typing1 = new Typed('#type1', {strings: stringArray, typeSpeed: 20})
+                var typing1 = new Typed('#type1', {strings: [stringArray[0]], typeSpeed: 10})
                 function positionCheck() {
                     if ($('.place-1').text() === 'PRODAPM1' && $('.place-2').text() === 'VESPER' && $('.place-3').text() === 'NAT1962') {
                         playsound()
-                        typing1.start()
-                        // var typing2 = new Typed("#type2", {strings: ['PRODAPM1-VESPER-NAT1962'], typeSpeed: 20})
-                        hue.lightSwitch(4)
+                        $('span.typed-cursor').remove()
+                        var typing2 = new Typed('#type2', {strings: [stringArray[1]], typeSpeed: 10})
+                        activateLight(4)
                         setTimeout(() => {
                             winner()
-                        }, 3000);
+                        }, 16000);
                     }
                 }
 

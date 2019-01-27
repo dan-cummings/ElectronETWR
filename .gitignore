@@ -1,2 +1,4 @@
 /node_modules
 .DS_Store
+/ElectronETWR-win32-x64
+/ElectronETWR-darwin-x64
