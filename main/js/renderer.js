@@ -3,14 +3,11 @@ const player = require('play-sound')(opts = {})
 const HueController = require(`${__dirname}/light/js/huecontrol.js`)
 const { ipcRenderer } = require('electron')
 const Store = require('electron-store')
-const Typed = require('typed.js') 
-const {Howl, Howler} = require('howler');
+const Typed = require('typed.js')
 
 let token1 = false
 let token2 = false
 let token3 = false
-
-let correctSound = new Howl({src: './main/resources/correct.wav'})
 
 let dragOrigin
 let dragText
@@ -35,8 +32,7 @@ function activateLight(lightid) {
 }
 
 function playsound() {
-    // player.play("./main/resources/correct.wav")
-    correctSound.play()
+    player.play("./main/resources/correct.wav")
 }
 
 function winner() {
