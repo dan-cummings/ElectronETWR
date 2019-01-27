@@ -27,6 +27,18 @@ function createWindow() {
       lightWindow.close()
     }
   })
+
+  electron.globalShortcut.register('F3', () => {
+    if (winnerWindow) {
+      winnerWindow.webContents.openDevTools()
+    }
+    if (lightWindow) {
+      lightWindow.webContents.openDevTools()
+    }
+    if (mainWindow) {
+      mainWindow.webContents.openDevTools()
+    }
+  })
   electron.globalShortcut.register("CommandOrControl+i", () => {
     if (lightWindow) {
       return
