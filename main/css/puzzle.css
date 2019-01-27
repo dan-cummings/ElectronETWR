@@ -1,45 +1,84 @@
+
+/* Index elements */
+.mdl-layout__header {
+    background: linear-gradient(#191919, #242424);
+}
+
+.mdl-layout-title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+body {
+    background: radial-gradient(farthest-corner at 5% 100%, #31295e 0%, #000 100%);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.tab-selection {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.mdl-layout__tab .tab-selection {
+    background: linear-gradient(#242424, #191919);
+    color: #cccccc;
+    text-transform: none;
+    transition: font-size 0.33s, color 0.33s;
+}
+
+.mdl-layout__tab:hover {
+    color: #898989;
+}
+
+
+.mdl-layout.is-upgraded .mdl-layout__tab.is-active .tab-selection {
+    color: #fff;
+    font-size: 20px;
+}
+
+.mdl-layout.is-upgraded .mdl-layout__tab.is-active::after {
+    background: linear-gradient(-90deg, #712F90, #2583EE);
+    animation: border-expand .8s cubic-bezier(0, 0, 0.38, 0.99) forwards;
+    transition: all 1s;
+}
+
+
+
+/* Puzzle entry elements */
+#submit.mdl-button {
+    /* display: none; */
+    background-image: linear-gradient(120deg, rgb(37, 131, 238) 25%, rgb(113, 47, 144) 75%);
+    font-family: Tahoma;
+    font-weight: 100;
+    text-transform: none;
+    background-size: 200% 100%;
+    transition: background-position-x 0.33s;
+    background-position: 50%;
+    padding: 8px 22px;
+    margin: 0 3px;
+    font-size: 15px;
+    line-height: 16px;
+}
+
+#submit.mdl-button:hover {
+    background-position-x: 10%;
+}
+
+h3 {
+    font-weight: 500;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-image: linear-gradient(120deg, rgba(37, 131, 238, 1) 5%,rgba(113, 47, 144,0.5), rgba(113, 47, 144, 0) 90%) 20;
+}
+
 form {
     width: auto;
     height: auto;
     align-content: center;
 }
 
-.mdl-layout__header {
-    background: linear-gradient(#191919, #242424)
-}
-
-a {
-    font-family: BerninaSansWeb, sans-serif;
-}
-
-.mdl-layout__tab {
-    background: #242424;
-}
-
-.mdl-layout_title {
-    font-family: BerninaSansWeb, sans-serif;
-}
-
-body {
-    background: #f2f2f2
-}
-
-#submit {
-    display: none;
-}
-
-h3 {
-    font-family: BerninaSansWeb, sans-serif;
-    border-bottom: 2px solid #898989;
-}
-
-.is-active {
-    border-color: #f2f2f2;
-}
-
 #puzzle-entry {
     height: 100%;
-    padding: 100px;
+    padding: 50px;
     flex-flow: row;
     align-items: center;
     box-shadow: 5px 5px 25px 5px #898989;
@@ -50,18 +89,8 @@ h3 {
     vertical-align: middle;
 }
 
-.mdl-textfield--floating-label {
-    text-align: center;
-    font-size: 24px;
-}
 
-.mdl-textfield__label {
-    font-size: 24px;
-}
-
-.mdl-textfield__input {
-    font-size: 24px;
-}
+/* Puzzle order elements */
 
 #puzzle-order-terminal {
     height: 70%;
@@ -86,12 +115,6 @@ h3 {
     border-radius: 3px;
 }
 
-.mdl-grid {
-    height: 80%;
-    padding: 24px;
-    margin: 15px;
-}
-
 .place-1 {
     font-family: 'Courier New', Courier, monospace;
 }
@@ -102,4 +125,20 @@ h3 {
 
 .place-3 {
     font-family: 'Courier New', Courier, monospace;
+
+}
+
+/* MDL specific */
+.mdl-grid {
+    height: 80%;
+    padding: 24px;
+    margin: 15px;
+}
+.mdl-textfield--floating-label {
+    text-align: center;
+    font-size: 24px;
+}
+
+.mdl-textfield__label {
+    font-size: 24px;
 }

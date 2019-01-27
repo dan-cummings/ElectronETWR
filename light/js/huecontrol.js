@@ -11,7 +11,7 @@ class HueController {
     }
 
     discover() {
-        return huejay.discover({ strategy: 'upnp' })
+        return huejay.discover()
     }
 
     connect(ip, name = 'bridgeusername') {

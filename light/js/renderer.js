@@ -8,12 +8,15 @@ let hue = new HueController()
 let lastBridge = store.get('lastBridge')
 
 var find = function findBridges() {
+  console.log("searching")
   $('#bridges').empty()
   hue.discover().then((bridges) => {
     for (let bridge of bridges) {
       buildBridge(bridge)
       console.log(bridge.ip)
     }
+  }).catch(error => {
+    console.log(error.stack)
   })
 }
 
@@ -60,7 +63,8 @@ var connect = function connectToBridge(ip) {
   $('#load-lights').prop('disabled', false)
 }
 
-$('#load-config').click(() => {
+function loadLights() {
+  lastBridge = store.get('lastBridge')
   if (lastBridge) {
     $('#lights-table').empty()
     $('#load-lights').prop('disabled', false)
@@ -75,6 +79,15 @@ $('#load-config').click(() => {
     })
   } else {
     notify.notify({title: "Connection", message: "No previous bridges found. Please connect."})
-  }})
+  }
+}
+
+$('#load-config').click(() => {
+  loadLights()
+})
+
+$('#load-lights').click(() => {
+  loadLights()
+})
 
 $("#search").click(find)

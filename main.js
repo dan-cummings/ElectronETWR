@@ -9,16 +9,18 @@ let mainWindow, lightWindow, winnerWindow
 
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 1280, height: 720 })
-
+  mainWindow = new BrowserWindow({ width: 1280, height: 720, autoHideMenuBar: true, titleBarStyle: "hidden", fullscreen: true, frame: false })
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.webContents.openDevTools()
+  electron.globalShortcut.register('F1', () => {
+    mainWindow.close()
+  })
   electron.globalShortcut.register('F5', () => {
     mainWindow.webContents.session.clearStorageData()
     mainWindow.reload()
   })
   electron.globalShortcut.register("CommandOrControl+i", () => {
-    lightWindow = new BrowserWindow({ width: 600, height: 800, parent: mainWindow })
+    lightWindow = new BrowserWindow({ width: 600, height: 800, parent: mainWindow, modal: true, autoHideMenuBar: true})
     lightWindow.loadURL(`file://${__dirname}/light/huecontrol.html`)
     lightWindow.webContents.openDevTools()
     lightWindow.on('closed', function () {
@@ -47,7 +49,7 @@ app.on('activate', function () {
 
 ipcMain.on('create-window', (event, arg) => {
   if (arg === "winner") {
-    winnerWindow = new BrowserWindow({width: 1280, height: 720, parent: mainWindow})
+    winnerWindow = new BrowserWindow({width: 1280, height: 720, parent: mainWindow, modal: true, autoHideMenuBar: true})
     winnerWindow.webContents.on('did-finish-load', ()=>{
       winnerWindow.show();
       winnerWindow.focus();
