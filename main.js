@@ -11,7 +11,6 @@ let mainWindow, lightWindow, winnerWindow
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 1280, height: 720, autoHideMenuBar: true, titleBarStyle: "hidden", fullscreen: true, frame: false })
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-  mainWindow.webContents.openDevTools()
   electron.globalShortcut.register('F1', () => {
     mainWindow.close()
   })
