@@ -24,7 +24,8 @@
 ### Application reset
 1. After run through, open hue config (ctrl/cmd + i) and select "load last bridge" this will provide access to light toggle buttons
 2. Toggle lights off and close hue config window
-3. Total application reset can be done using "F5" command
+3. If customer wins, module window can be closed by either escape button or by pressing F2
+4. Total application reset can be done using "F5" command
 
 ### Notes
 * Hue bridge settings are only required once during setup as connection data and authorization is stored locally
